@@ -29,7 +29,8 @@ export class SampleService implements ISampleService {
       // });
     });
   }
+
   public getLists(): Promise<any[]> {
-    return sp.web.lists.get();
+    return sp.web.lists.get(); // Promise.resolve([{ Title : "test1" }, { Title : "test2"}]);
   }
 }

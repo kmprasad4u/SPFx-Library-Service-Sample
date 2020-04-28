@@ -1,4 +1,5 @@
 ## SPFx-Library-Service-Sample
+[How to make spfx-fast-serve work with local dependency packages](https://github.com/s-KaiNet/spfx-fast-serve/issues/5)
 [How to set context for pnpjs in Service ?](https://github.com/pnp/pnpjs/issues/869)
 
 ### Building the code

@@ -57,7 +57,7 @@ export default class SampleWebPartWebPart extends BaseClientSideWebPart<ISampleW
         <div class="${ styles.container }">
           <div class="${ styles.row }">
             <div class="${ styles.column }">
-              <p>Lists Count : ${ this.lists ? this.lists.length : 0 }</p>
+              <p>Lists Count: ${ this.lists ? this.lists.length : 0 }</p>
             </div>
           </div>
         </div>
