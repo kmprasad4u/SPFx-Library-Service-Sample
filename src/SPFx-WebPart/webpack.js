@@ -179,7 +179,7 @@ let baseConfig = {
         target: host,
         pathRewrite: { "^/lib": "/src" },
         secure: false
-      }
+      }      
     },
     headers: {
       "Access-Control-Allow-Origin": "*",
@@ -193,7 +193,8 @@ let baseConfig = {
 
 const createConfig = function () {
   // remove old css module TypeScript definitions
-  del.sync(["dist/*.js", "dist/*.map"]);
+  //del.sync(["dist/*.js", "dist/*.map"]);
+  del.sync(["dist/*.*"]);
 
   // we need only "externals", "output" and "entry" from the original webpack config
   let originalWebpackConfig = require("./temp/_webpack_config.json");
