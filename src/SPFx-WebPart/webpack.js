@@ -6,7 +6,8 @@ const CertStore = require("@microsoft/gulp-core-build-serve/lib/CertificateStore
 const CertificateStore = CertStore.CertificateStore || CertStore.default;
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 const del = require("del");
-const host = "https://localhost:4321";
+const port = 4321;
+const host = "https://localhost:" + port;
 
 ///
 // Transforms define("<guid>", ...) to web part specific define("<web part id_version", ...)
@@ -160,10 +161,11 @@ let baseConfig = {
     contentBase: resolve(__dirname),
     publicPath: host + "/dist/",
     host: "localhost",
-    port: 4321,
+    port: port,
     disableHostCheck: true,
     historyApiFallback: true,
     open: true,
+    writeToDisk: false,
     openPage: host + "/temp/workbench.html",
     stats: {
       preset: "errors-only",
@@ -191,7 +193,7 @@ let baseConfig = {
 
 const createConfig = function () {
   // remove old css module TypeScript definitions
-  del.sync(["dist/*.*"]);
+  del.sync(["dist/*.js", "dist/*.map"]);
 
   // we need only "externals", "output" and "entry" from the original webpack config
   let originalWebpackConfig = require("./temp/_webpack_config.json");
