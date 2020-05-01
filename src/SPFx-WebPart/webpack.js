@@ -197,8 +197,6 @@ const createConfig = function () {
   //del.sync(["dist/*.js", "dist/*.map"]);
   del.sync(["dist/*.js", "dist/*.map"]);
 
-  addProxyForLibrary(baseConfig.devServer.proxy, "sp-fx-library", 4322);
-  
   // we need only "externals", "output" and "entry" from the original webpack config
   let originalWebpackConfig = require("./temp/_webpack_config.json");
   baseConfig.externals = originalWebpackConfig.externals;
@@ -229,29 +227,6 @@ const createConfig = function () {
   }));
 
   return baseConfig;
-}
-
-async function addProxyForLibrary(proxies, libPkgName, port) {
-  const status = await isPortInUse(port)
-  if(status) {
-    proxies.push({
-      ["/node_modules/"+ libPkgName +"/**/*.*"] : {
-        target: "https://localhost:"+ port,
-        pathRewrite: { 
-          ["^/node_modules/"+ libPkgName]: "/" },
-        secure: false
-      }
-    });
-  }
-}
-
-function isPortInUse(port) {
-  return new Promise((resolve, reject) => {
-    const tester = net.createServer()
-       .once('error', err => (err.code == 'EADDRINUSE' ? resolve(true) : reject(err)))
-       .once('listening', () => tester.once('close', () => resolve(false)).close())
-       .listen(port)
-  });
 }
 
 function getEntryPoints(entry) {

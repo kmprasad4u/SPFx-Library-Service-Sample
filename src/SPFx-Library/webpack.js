@@ -164,7 +164,7 @@ let baseConfig = {
     port: port,
     disableHostCheck: true,
     historyApiFallback: true,
-    open: true,
+    open: false,
     writeToDisk: true,
     openPage: host + "/temp/workbench.html",
     stats: {
