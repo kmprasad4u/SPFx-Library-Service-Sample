@@ -4,6 +4,8 @@ import { sp } from "@pnp/sp";
 
 export interface ISampleService {
   getLists() : Promise<any[]>;
+  getMockLists() : Promise<any[]>;
+  getMockLists1() : Promise<any[]>;
 }
 
 export class SampleService implements ISampleService {
@@ -32,5 +34,13 @@ export class SampleService implements ISampleService {
 
   public getLists(): Promise<any[]> {
     return sp.web.lists.get(); // Promise.resolve([{ Title : "test1" }, { Title : "test2"}]);
+  }
+  
+  public getMockLists(): Promise<any[]> {
+    return Promise.resolve([{ Title : "test1" }, { Title : "test2"}]);
+  }
+
+  public getMockLists1(): Promise<any[]> {
+    return Promise.resolve([{ Title : "test1" }, { Title : "test2"}, { Title : "test3"}]);
   }
 }

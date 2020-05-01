@@ -40,7 +40,7 @@ export default class SampleWebPartWebPart extends BaseClientSideWebPart<ISampleW
   }
   
   public render():void {
-    this.sampleService.getLists().then((lists) => {
+    this.sampleService.getMockLists1().then((lists) => {
       this.lists = lists;
       this.renderCompleted();
     }).catch((err) => {
