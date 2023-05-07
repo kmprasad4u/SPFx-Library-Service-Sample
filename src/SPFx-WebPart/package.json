@@ -24,10 +24,10 @@
     "sp-fx-library": "file:../SPFx-Library"
   },
   "devDependencies": {
-    "@microsoft/sp-build-web": "1.9.1",
+    "@microsoft/sp-build-web": "1.17.1",
     "@microsoft/sp-tslint-rules": "1.9.1",
     "@microsoft/sp-module-interfaces": "1.9.1",
-    "@microsoft/sp-webpart-workbench": "1.9.1",
+    "@microsoft/sp-webpart-workbench": "1.12.1",
     "@microsoft/rush-stack-compiler-2.9": "0.7.16",
     "gulp": "~3.9.1",
     "@types/chai": "3.4.34",
@@ -42,7 +42,7 @@
     "ts-loader": "6.2.1",
     "webpack": "4.42.0",
     "webpack-bundle-analyzer": "^3.6.0",
-    "webpack-cli": "3.3.11",
+    "webpack-cli": "3.3.12",
     "webpack-dev-server": "3.10.3",
     "del": "5.1.0",
     "cross-env": "7.0.2"
